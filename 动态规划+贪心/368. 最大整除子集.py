@@ -18,7 +18,7 @@ answer[j] % answer[i] == 0
 
 
 class Solution:
-    def largestDivisibleSubset(self, nums: List[int]) -> List[int]:
+    def largestDivisibleSubset(self, nums):
         """
         首先排序
         dp[i] = max(dp[i], dp[j]+1) if j和i整除，并且 0<j<i
