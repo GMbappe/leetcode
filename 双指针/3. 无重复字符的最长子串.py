@@ -34,9 +34,9 @@ class Solution(object):
         i = 0
         max_len = 1
         while i < n:
-            if i > 0 and a:
+            if i > 0 and a: #说明移动了 需要剔除之前存在的
                 a.remove(s[i-1])
-            while r+1 < n and s[r+1] not in a:
+            while r+1 < n and s[r+1] not in a:  #移动右指针直到不满足条件
                 a.add(s[r+1])
                 r += 1
             max_len = max(max_len, r+1-i)  # 获取最大长度

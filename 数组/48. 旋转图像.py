@@ -43,3 +43,18 @@ class Solution(object):
 
         return matrix
 
+    def reverse_rotate_image(self, matrix):
+        """
+        逆时针旋转图像
+        """
+        if not matrix:
+            return []
+        m = len(matrix)
+        n = len(matrix[0])
+        for i in range(m):
+            for j in range(0,n-i):  # 保持已经变换过的 不动
+                matrix[i][j], matrix[n-j-1][n-i-1] = matrix[n-j-1][n-i-1], matrix[i][j]
+        for i in range(m):
+            matrix[i] = matrix[i][::-1]
+
+        return matrix

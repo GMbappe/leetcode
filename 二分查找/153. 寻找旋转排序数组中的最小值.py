@@ -24,19 +24,24 @@
 
 
 class Solution():
-    def findMin(self, nums):
+    def findMin(self, numbers):
+        """
+                二分
+                mid 和 左右进行比较
+                如果mid > r:右边升序，小的在右边 l=mid+1
+                如果mid < r: 左边升序，小的在左边 r= mid
+                如果mid=r: 则 最大的向左移动一位 r -= 1
+                """
+        n = len(numbers)
         l = 0
-        r = len(nums)-1
+        r = n - 1
         while l < r:
-            mid = (l+r)//2
-            if nums[mid] < nums[r]:
+            mid = (l + r) // 2
+            if numbers[mid] < numbers[r]:
                 r = mid
-            else:
+            elif numbers[mid] > numbers[r]:
                 l = mid + 1
-        return nums[l]
+            else:
+                r -= 1
 
-
-if __name__ == '__main__':
-    a = [4,5,6,7,0,1,2]
-    b = Solution().findMin(a)
-    print(b)
+        return numbers[l]
