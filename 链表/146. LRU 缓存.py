@@ -55,7 +55,7 @@ class LRUCache:
         self.size = 0  # 长度需要和capacity进行对比
 
     def get(self, key):
-        if k not in self.cache:
+        if key not in self.cache:
             return -1
             # 如果存在，先通过哈希表返回，然后再调整位置，到头节点
         node = self.cache[key]
@@ -101,7 +101,7 @@ class LRUCache:
         self.removeNode(node)
         return node
 
-    # Your LRUCache object will be instantiated and called as such:
+# Your LRUCache object will be instantiated and called as such:
 # obj = LRUCache(capacity)
 # param_1 = obj.get(key)
 # obj.put(key,value)
