@@ -32,14 +32,9 @@ class Solution(object):
                 left[i] = left[i - 1] + 1
             else:
                 left[i] = 1
-        print(left)
-        right = ret = 0
         for i in range(n - 1, -1, -1):
-            print(i)
             if i < n - 1 and ratings[i] > ratings[i + 1] and left[i] <= left[i+1]:
                 left[i] = left[i+1] + 1
-
-        print(left)
 
         return sum(left)
 
